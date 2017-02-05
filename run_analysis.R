@@ -2,7 +2,7 @@ run_analysis <- function() {
 	
 	print("loading data sets ...")
 	# specify directories to read data from
-	base_dir <- file.path(getwd(), "getdata_projectfiles_UCI HAR Dataset", "UCI HAR Dataset")
+	base_dir <- file.path(getwd(), "UCI_HAR_Dataset")
 	train_dir <- file.path(base_dir, "train")
 	test_dir <- file.path(base_dir, "test")
 
@@ -35,43 +35,41 @@ run_analysis <- function() {
 
 
 	print("merging data sets ...")
-	# prepare merge of data sets
 	library(dplyr)
-	X_train_typed <- mutate(X_train, type = "train")
-	X_test_typed <- mutate(X_test, type = "test")
-
 	# merge data sets
-	X_train_typed <- cbind.data.frame(subject_train, y_train, X_train_typed)
-	X_test_typed <- cbind.data.frame(subject_test, y_test, X_test_typed)
+	X_train_typed <- cbind.data.frame(subject_train, y_train, X_train)
+	X_test_typed <- cbind.data.frame(subject_test, y_test, X_test)
 	X_train_and_test <- rbind(X_train_typed, X_test_typed)
 
+	
 	print("extracting variables ...")
 	# extract only variables for mean and standard deviation
-	X_train_and_test_mean_std <- X_train_and_test[, grep("(std|mean)\\.", colnames(X_train_and_test))]
+	X_train_and_test_mean_std <- X_train_and_test[, grep("(std|mean)($|[^A-Za-z])", colnames(X_train_and_test))]
 		# Learning: to escape for grep, double escape must be used, since single \ already escapes string
-	X_train_and_test_mean_std <- cbind.data.frame(X_train_and_test[, c(1,2,ncol(X_train_and_test))], X_train_and_test_mean_std)
+	X_train_and_test_mean_std <- cbind.data.frame(X_train_and_test[, c(1,2)], X_train_and_test_mean_std)
 		# Learning:
 		# X_train_and_test_mean_std <- cbind.data.frame(X_train_and_test$subject, X_train_and_test$activity, X_train_and_test$type, X_train_and_test_mean_std)
 		# sorgt dafür, dass die colnames der ersten drei Spalten noch den Namen des ursprünglichen DFs beinhalten (z.B. X_train_and_test$subject)
-
-		
+	
+	
 	print("naming activities ...")
 	# replace activity ids by descriptive activity names
 	X_train_and_test_mean_std_new <- merge.data.frame(x = X_train_and_test_mean_std, y = activity_labels, by.x = "activity_id", by.y = "id")
-	new_ordered_colnames <- colnames(X_train_and_test_mean_std_new)[c(2, ncol(X_train_and_test_mean_std_new), 3:(ncol(X_train_and_test_mean_std_new)-1))]
+	new_ordered_colnames <- colnames(X_train_and_test_mean_std_new)[c(ncol(X_train_and_test_mean_std_new), 2, 3:(ncol(X_train_and_test_mean_std_new)-1))]
 	X_train_and_test_mean_std <- X_train_and_test_mean_std_new[,new_ordered_colnames]
 	rm(X_train_and_test_mean_std_new)
 	
 	
 	print("creating new data set ...")	
-	# creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-	grouped_X_data <- group_by(select(X_train_and_test_mean_std, -type), activity, subject)
+	# create a second, independent tidy data set with the average of each variable for each activity and each subject.
+	grouped_X_data <- group_by(X_train_and_test_mean_std, activity, subject)
 	mean_X_data <- summarize_all(grouped_X_data, .funs = mean)
 	
 	
 	print("writing data sets ...")
-	write.csv(X_train_and_test_mean_std, file = "train_test.csv", row.names = FALSE)
-	write.csv(mean_X_data, file = "train_test_mean.csv", row.names = FALSE)
+	# write data sets to csv files
+	write.csv(X_train_and_test_mean_std, file = "activity_measurements.csv", row.names = FALSE)
+	write.csv(mean_X_data, file = "activity_measurements_mean.csv", row.names = FALSE)
 	
 	
 	print("done.")
