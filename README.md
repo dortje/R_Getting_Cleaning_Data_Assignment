@@ -18,7 +18,7 @@ The data can be obtained here: https://d396qusza40orc.cloudfront.net/getdata%2Fp
 
 The task for this assigment ist to reshape the data and to derive new data from the original data sets given.
 
-## Which files are included and what are they for
+## What files are included and what are they for
 The following files are included within ths repo:
 * README.md - This file. It gives a short introduction to the purpose of this repo and an overview of the files and their content
 * codebook.md - This markdown file explains the data sets produced, the variables within them and how they were derived from the original data sets
