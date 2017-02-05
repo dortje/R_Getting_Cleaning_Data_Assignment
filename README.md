@@ -22,8 +22,8 @@ The task for this assigment is to reshape the data and to derive new data from t
 The following files are included within ths repo:
 * README.md - This file. It gives a short introduction to the purpose of this repo and an overview of the files and their content
 * codebook.md - This markdown file explains the data sets produced, the variables within them and how they were derived from the original data sets
-* activity_measurements.csv - A reshaped data set containing the mean and standard deviation of acceleration and gyroscope measurements for six basic activities conducted by 30 human subjects
-* activity_measurements_mean.csv - A derived data set containing the average of the mean and standard deviations of the measurements from file activity_measurements.csv per activity and subjects
+* activity_measurements.txt - A reshaped data set containing the mean and standard deviation of acceleration and gyroscope measurements for six basic activities conducted by 30 human subjects
+* activity_measurements_mean.txt - A derived data set containing the average of the mean and standard deviations of the measurements from file activity_measurements.txt per activity and subjects
 * run_analysis.R - An R file containing a function to produce the two data sets from the original data
 * directory UCI_HAR_Dataset - The directory containing the original data sets along with descriptions about them. (Further explanations about the files used for the assigment can be found in the coodbook.)
 

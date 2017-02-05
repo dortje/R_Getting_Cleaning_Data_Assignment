@@ -2,8 +2,8 @@
 
 ## Introduction
 This git hub repo contains two tidy data sets:
-* activity_measurements.csv (data set after step 4)
-* activity_measurements_mean.csv (data set after step 5)
+* activity_measurements.txt (data set after step 4)
+* activity_measurements_mean.txt (data set after step 5)
 
 These data sets were derived from accelerometer data conducted in a study for Human Activity Recognition Using Smartphones (see http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
 The original data set along with some more descriptions can be found within this GitHub repo in the directory UCI_HAR_Dataset.
@@ -16,9 +16,9 @@ The six basic activities are: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SIT
 30 subjects participated in the experiment. By random 70% were selected in the training data set and 30% in the test data set.
 
 ## Description of variables
-The data set *activity_measurements.csv* describes all the measurements conducted for the subjects doing the activities multiple times. 
+The data set *activity_measurements.txt* describes all the measurements conducted for the subjects doing the activities multiple times. 
 
-The data set *activity_measurements_mean.csv* contains the average per activity and subject for all the measurements in the data set *activity_measurements.csv*.
+The data set *activity_measurements_mean.txt* contains the average per activity and subject for all the measurements in the data set *activity_measurements.txt*.
 
 Nevertheless both data sets have the same column names.
 
@@ -27,7 +27,7 @@ activity - the subject's activity as a label
 subject - the number of the subject as int between 1 and 30
 
 The other variables are all the means (mean) and standard deviations (std) from the features of the accelerometer and gyroscope 3-axial raw signals. (The second data set 
-*activity_measurements_mean.csv* gives the average per subject and activity for all those stds and means of the measurements)
+*activity_measurements_mean.txt* gives the average per subject and activity for all those stds and means of the measurements)
 
 Folowing is an explanation of the feature measurements:
 All features starting with t are time domain signals with noise already been removed.
@@ -87,13 +87,13 @@ The following files were used to produce the data sets (path is relative to UCI_
 * activity_labels.txt - contains a vector of the six acitivity ids and corresponding labels
 * features.txt - contains a vector of all the featurenames (variable names) for X_train and X_test data set
 	
-## activity_measurements.csv
+## activity_measurements.txt
 The measurements from the original training and test data sets were merged together into one data set along with the coresponding subject and activity value.
 The activity columns contains the lables instead of the ids.
 For all the given variables in the original data set, only the mean and the standard deviation was extracted.
 
-## activity_measurements_mean.csv
-Based on the data set *activity_measurements.csv* a second data set was derived containing the average values for all variables per activity and subject.
+## activity_measurements_mean.txt
+Based on the data set *activity_measurements.txt* a second data set was derived containing the average values for all variables per activity and subject.
 Thus data set contains 6 * 30 = 180 rows.
 
 ## Script to derive the data sets from the original data sets
@@ -123,7 +123,7 @@ Regarding the descriptive names I have chosen to use the function make.names() o
 Now the variable names clearly state what each columns stands for, espaecially along with the coodbook.
 The activity and subject columns are also named. After step 3 the resulting data set first contains the subject the activity variable, then the subject variable, and then all the measurement variables.
 
-After having done step 1 to 4, the data set *activity_measurements.csv* is complete.
+After having done step 1 to 4, the data set *activity_measurements.txt* is complete.
 
 ### 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 As there are many ways to interpret this task (see forum for this class) I shortly explain my interpretation:
@@ -136,4 +136,4 @@ select activity, subject, avg(tBodyAcc.mean.X), avg(tBodyAcc.mean.Y), avg(tBodyA
 from data_set 
 group by activity, subject)
 
-The result goes into data set *activity_measurements_mean.csv*
+The result goes into data set *activity_measurements_mean.txt*
