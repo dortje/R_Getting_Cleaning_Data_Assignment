@@ -81,6 +81,6 @@ For all the given variables in the original data set, only the mean and the stan
 Based on the data set *activity_measurements.csv* a second data set was derived containing the average values for all variables per activity and subject.
 Thus data set contains 6 * 30 = 180 rows.
 
-## Script
+## Script to derive the data sets from the original data sets
 The data sets were produced with the function run_analysis within the R file run_analysis.R which resides within this GitHub repo.
 For running the script, the orginal data sets must be on the same relative paths as they are within this GitHub repo.
