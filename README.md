@@ -28,4 +28,4 @@ The following files are included within ths repo:
 * directory UCI_HAR_Dataset - The directory containing the original data sets along with descriptions about them. (Further explanations about the files used for the assigment can be found in the coodbook.)
 
 ## How can the resulting data sets be read
-I have used write.csv() to write the data sets. So please use read.csv() for reading them. No further arguments (apart from the file name of course) are required.
+I have used write.table() to write the data sets. So please use read.table() along with the parameter header=TRUE for reading them.

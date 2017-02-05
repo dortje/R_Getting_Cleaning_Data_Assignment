@@ -68,8 +68,8 @@ run_analysis <- function() {
 	
 	print("writing data sets ...")
 	# write data sets to csv files
-	write.csv(X_train_and_test_mean_std, file = "activity_measurements.csv", row.names = FALSE)
-	write.csv(mean_X_data, file = "activity_measurements_mean.csv", row.names = FALSE)
+	write.table(X_train_and_test_mean_std, file = "activity_measurements.csv", row.names = FALSE)
+	write.table(mean_X_data, file = "activity_measurements_mean.csv", row.names = FALSE)
 	
 	
 	print("done.")
