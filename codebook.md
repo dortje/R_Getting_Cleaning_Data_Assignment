@@ -97,7 +97,7 @@ Based on the data set *activity_measurements.txt* a second data set was derived 
 Thus data set contains 6 * 30 = 180 rows.
 
 ## Script to derive the data sets from the original data sets
-The data sets were produced with the function run_analysis within the R file run_analysis.R which resides within this GitHub repo.
+The data sets were produced with the function run_analysis() within the R file run_analysis.R which resides within this GitHub repo.
 For running the script, the orginal data sets must be on the same relative paths as they are within this GitHub repo.
 
 ## Steps tp reshape and derive the data set
