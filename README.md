@@ -16,7 +16,7 @@ A more detailed description is available here: http://archive.ics.uci.edu/ml/dat
 The data can be obtained here: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 (The original data is also part of this GitHub repo.)
 
-The task for this assigment ist to reshape the data and to derive new data from the original data sets given.
+The task for this assigment is to reshape the data and to derive new data from the original data sets given.
 
 ## What files are included and what are they for
 The following files are included within ths repo:
@@ -26,3 +26,6 @@ The following files are included within ths repo:
 * activity_measurements_mean.csv - A derived data set containing the average of the mean and standard deviations of the measurements from file activity_measurements.csv per activity and subjects
 * run_analysis.R - An R file containing a function to produce the two data sets from the original data
 * directory UCI_HAR_Dataset - The directory containing the original data sets along with descriptions about them. (Further explanations about the files used for the assigment can be found in the coodbook.)
+
+## How can the resulting data sets be read
+I have used write.csv() to write the data sets. So please use read.csv() for reading them. No further arguments (apart from the file name of course) are required.
